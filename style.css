@@ -311,7 +311,7 @@ ul { list-style: none; }
 
 /* Eco Cards - 3D Flip */
 .eco-grid {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(min(340px, 100%), 1fr));
     gap: 1.5rem; margin-bottom: 3rem;
 }
 .eco-card {
@@ -585,7 +585,7 @@ ul { list-style: none; }
 
 /* Charts */
 .charts-grid {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(min(350px, 100%), 1fr));
     gap: 1.5rem;
 }
 .chart-container {
@@ -868,7 +868,7 @@ ul { list-style: none; }
    ============================================================ */
 
 .inno-grid {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
     gap: 1.5rem; margin-bottom: 2.5rem;
 }
 .inno-card {
@@ -988,7 +988,9 @@ footer {
 /* ---------- Tablets portrait / large phones ---------- */
 @media (max-width: 768px) {
     .container { padding: 0 1.2rem; }
-    .section { padding: 4rem 0; }
+    .section { padding: 3.5rem 0; }
+    .section-title { font-size: clamp(1.5rem, 4vw, 2rem); }
+    .section-intro { font-size: 0.95rem; }
 
     /* Nav */
     #navbar { padding: 0 1rem; }
@@ -1002,32 +1004,44 @@ footer {
         overflow-y: auto;
     }
     .nav-links.open { display: flex; }
+    .nav-links a { padding: 0.7rem 1rem; }
 
     /* Hero */
     .hero { padding: 64px 1.2rem 2rem; }
     .hero h1 { font-size: 2.2rem; }
-    .hero-stats { gap: 1.5rem; }
+    .hero-subtitle { font-size: 1rem; }
+    .hero-stats { gap: 1.2rem; }
     .hero-stat .counter { font-size: 1.6rem; }
     .hero-rings-olympic { max-width: 280px; }
-    .section-title { font-size: clamp(1.5rem, 4vw, 2rem); }
+    .hero-badge { font-size: 0.75rem; margin-bottom: 1.5rem; }
+    .btn-primary { padding: 0.8rem 1.8rem; font-size: 0.95rem; }
 
     /* Ecosysteme */
-    .key-figures { grid-template-columns: repeat(2, 1fr); }
+    .key-figures { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
     .eco-grid { grid-template-columns: 1fr; }
-    .eco-card-inner { min-height: 240px; }
+    .eco-card-inner { min-height: 220px; }
     .eco-card-front, .eco-card-back { padding: 1.2rem; }
+    .eco-card-front h3 { font-size: 1.05rem; }
+    .eco-icon-wrap { width: 52px; height: 52px; font-size: 1.6rem; }
     .org-level { flex-direction: column; align-items: center; }
     .org-branch { min-width: 140px; }
+    .eco-bottom-grid { gap: 1rem; }
+    .organigramme, .budget-chart-wrapper { padding: 1.5rem; }
 
     /* Performances */
-    .athlete-profile { flex-direction: column; text-align: center; }
-    .athlete-stats { margin-left: 0; justify-content: center; }
+    .athlete-profile { flex-direction: column; text-align: center; padding: 1.5rem; }
+    .athlete-stats { margin-left: 0; justify-content: center; flex-wrap: wrap; }
+    .stat-box { min-width: 70px; padding: 0.8rem; }
+    .stat-value { font-size: 1.4rem; }
     .medals-display { justify-content: center; }
     .results-table th { font-size: 0.72rem; padding: 0.7rem 0.8rem; }
     .results-table td { font-size: 0.82rem; padding: 0.7rem 0.8rem; }
     .charts-grid { grid-template-columns: 1fr; }
+    .filters { gap: 0.4rem; }
+    .filter-btn { padding: 0.45rem 0.9rem; font-size: 0.82rem; }
 
     /* Heritage */
+    .territory-map { padding: 1.2rem; }
     .before-after { grid-template-columns: 1fr; }
     .seine-facts { grid-template-columns: 1fr; }
     .pros-cons { grid-template-columns: 1fr; }
@@ -1042,83 +1056,209 @@ footer {
 
     /* Innovations */
     .inno-grid { grid-template-columns: 1fr; }
+    .inno-card { padding: 1.4rem; }
 
     /* Footer */
-    .footer-grid { grid-template-columns: 1fr; text-align: center; }
+    .footer-grid { grid-template-columns: 1fr; text-align: center; gap: 1.5rem; }
     .footer-rings { justify-content: center; }
+    footer { padding: 3rem 0 0; }
 }
 
 /* ---------- Phones ---------- */
 @media (max-width: 480px) {
     .container { padding: 0 0.8rem; }
+    .section { padding: 2.5rem 0; }
+    .section-header { margin-bottom: 2rem; }
 
     /* Hero */
-    .hero-stats { gap: 1rem; }
+    .hero { padding: 60px 0.8rem 1.5rem; min-height: auto; min-height: 100svh; }
+    .hero h1 { font-size: 1.9rem; letter-spacing: -0.5px; }
+    .hero-subtitle { font-size: 0.9rem; margin-bottom: 1.5rem; }
+    .hero-stats { gap: 0.8rem; flex-wrap: wrap; justify-content: center; }
+    .hero-stat .counter { font-size: 1.4rem; }
+    .hero-stat small { font-size: 0.65rem; letter-spacing: 1px; }
+    .hero-rings-olympic { max-width: 240px; margin-bottom: 1.5rem; }
+    .hero-badge { font-size: 0.68rem; padding: 0.3rem 1rem; margin-bottom: 1rem; }
+    .btn-primary { padding: 0.75rem 1.5rem; font-size: 0.9rem; }
+    .hero-scroll-indicator { display: none; }
 
     /* Ecosysteme */
     .key-figures { grid-template-columns: 1fr 1fr; gap: 0.8rem; }
     .kf-number { font-size: 1.6rem; }
-    .eco-card { min-height: auto; }
-    .eco-card-inner { min-height: auto; }
-    .eco-card-front, .eco-card-back { padding: 1rem; }
+    .kf-icon { font-size: 1.5rem; }
+    .key-figure { padding: 1rem 0.6rem; }
+
+    /*
+     * ECO-CARDS: Disable 3D flip on mobile.
+     * The absolute-positioned front/back faces collapse to 0px height
+     * when the parent has min-height:auto. Switch to simple show/hide.
+     */
+    .eco-card { min-height: auto; perspective: none; }
+    .eco-card-inner {
+        min-height: auto; transform-style: flat;
+    }
+    .eco-card.flipped .eco-card-inner { transform: none; }
+    .eco-card-front, .eco-card-back {
+        position: relative; inset: auto;
+        backface-visibility: visible;
+        -webkit-backface-visibility: visible;
+        padding: 1.2rem;
+    }
+    .eco-card-back {
+        display: none; transform: none;
+        border-radius: var(--radius);
+    }
+    .eco-card.flipped .eco-card-front { display: none; }
+    .eco-card.flipped .eco-card-back { display: flex; }
+
+    .eco-bottom-grid { gap: 1rem; }
+    .organigramme, .budget-chart-wrapper { padding: 1rem; }
+    .organigramme h3, .budget-chart-wrapper h3 { font-size: 0.95rem; margin-bottom: 1.2rem; }
+    .org-node { padding: 0.5rem 0.8rem; font-size: 0.8rem; }
+    .org-branch { min-width: 0; width: 100%; }
+    .org-leaf { font-size: 0.72rem; padding: 0.3rem 0.6rem; }
+
+    /* Performances */
+    .athlete-profile { padding: 1.2rem; gap: 1rem; }
+    .athlete-info h3 { font-size: 1.3rem; }
+    .avatar-circle { width: 60px; height: 60px; font-size: 1.2rem; }
+    .stat-box { min-width: 60px; padding: 0.6rem 0.5rem; }
+    .stat-value { font-size: 1.2rem; }
+    .stat-label { font-size: 0.6rem; }
+    .medal-item { padding: 0.3rem 0.7rem; font-size: 0.8rem; }
+    .filter-btn { padding: 0.4rem 0.8rem; font-size: 0.78rem; }
+    .detail-btn { width: 28px; height: 28px; font-size: 0.85rem; }
+    .type-badge, .medal-badge, .record-badge { font-size: 0.68rem; padding: 0.15rem 0.5rem; }
 
     /* Heritage */
     .impact-cards { grid-template-columns: 1fr; }
-    .heritage-stats { grid-template-columns: 1fr; }
+    .impact-card { padding: 1.2rem; }
+    .impact-icon { font-size: 2rem; }
+    .heritage-stats { grid-template-columns: 1fr 1fr; gap: 0.8rem; }
+    .h-stat { padding: 0.8rem; }
+    .h-stat-value { font-size: 1.4rem; }
+    .h-stat-label { font-size: 0.68rem; }
     .story-timeline { padding-left: 2.2rem; }
     .story-timeline::before { left: 0.6rem; }
     .chapter-marker { left: -2.2rem; }
     .chapter-number { width: 2rem; height: 2rem; font-size: 0.75rem; }
+    .chapter-content { padding: 1.2rem; }
+    .chapter-content h3 { font-size: 1.1rem; }
+    .chapter-tag { font-size: 0.65rem; }
+    .quote { padding: 1rem 1.2rem; font-size: 0.92rem; }
+    .quote cite { font-size: 0.78rem; }
+    .ba-card { padding: 1rem; }
+    .ba-card li { font-size: 0.82rem; }
+    .seine-fact { padding: 0.8rem; }
+    .sf-number { font-size: 1.2rem; }
+    .sf-desc { font-size: 0.72rem; }
+    .pros h4, .cons h4 { font-size: 0.9rem; }
+    .pros li, .cons li { font-size: 0.82rem; }
 
-    /* SVG map text legibility */
+    /* SVG map */
+    .territory-map { padding: 0.8rem; }
+    .territory-map h3 { font-size: 0.95rem; margin-bottom: 1rem; }
     .paris-map text { font-size: 14px; }
+    .map-legend { gap: 0.8rem; }
+    .map-legend span { font-size: 0.7rem; }
+
+    /* Innovations */
+    .inno-card { padding: 1.2rem; }
+    .inno-card h4 { font-size: 0.95rem; }
+    .inno-card > p { font-size: 0.82rem; }
+    .gauge-label { font-size: 0.72rem; }
+
+    /* Charts */
+    .chart-container { padding: 1rem; }
+    .chart-container h4 { font-size: 0.85rem; }
+
+    /* Footer */
+    footer { padding: 2rem 0 0; }
+    .footer-brand h4 { font-size: 1rem; }
+    .footer-brand p, .footer-info p { font-size: 0.8rem; }
+    .footer-nav a { font-size: 0.82rem; }
+    .footer-bottom { padding: 1rem 0; font-size: 0.72rem; }
 
     /* Back to top */
     #back-to-top { bottom: 1rem; right: 1rem; width: 40px; height: 40px; border-radius: 10px; }
 }
 
-/* ---------- Small phones ---------- */
+/* ---------- Small phones (iPhone SE, Galaxy S8 etc.) ---------- */
 @media (max-width: 375px) {
+    .container { padding: 0 0.6rem; }
+
     /* Nav */
     #navbar { padding: 0 0.5rem; }
-    .brand-text { font-size: 0.95rem; }
+    .brand-text { font-size: 0.9rem; }
+    .logo-ring { width: 7px; height: 7px; }
 
     /* Hero */
-    .hero h1 { font-size: 1.8rem; }
-    .hero-subtitle { font-size: 0.9rem; }
-    .hero-badge { font-size: 0.72rem; padding: 0.3rem 1rem; letter-spacing: 1px; }
-    .hero-rings-olympic { max-width: 220px; }
-    .hero-stats { flex-direction: column; align-items: center; gap: 0.8rem; }
+    .hero h1 { font-size: 1.65rem; }
+    .hero-subtitle { font-size: 0.85rem; }
+    .hero-badge { font-size: 0.65rem; padding: 0.25rem 0.8rem; letter-spacing: 1px; }
+    .hero-rings-olympic { max-width: 200px; }
+    .hero-stats { flex-direction: column; align-items: center; gap: 0.6rem; }
+    .hero-stat .counter { font-size: 1.3rem; }
+    .btn-primary { padding: 0.7rem 1.3rem; font-size: 0.85rem; }
 
     /* Sections */
-    .section { padding: 2.5rem 0; }
-    .section-header { margin-bottom: 2rem; }
-    .section-title { font-size: clamp(1.3rem, 5vw, 1.5rem); }
+    .section { padding: 2rem 0; }
+    .section-header { margin-bottom: 1.5rem; }
+    .section-title { font-size: 1.3rem; }
+    .section-intro { font-size: 0.85rem; }
 
     /* Ecosysteme */
-    .key-figures { grid-template-columns: 1fr; }
-    .org-branch { min-width: 100%; }
+    .key-figures { grid-template-columns: 1fr 1fr; gap: 0.5rem; }
+    .key-figure { padding: 0.8rem 0.4rem; }
+    .kf-number { font-size: 1.3rem; }
+    .kf-label { font-size: 0.65rem; letter-spacing: 0.5px; }
+    .kf-icon { font-size: 1.2rem; margin-bottom: 0.3rem; }
+    .eco-card-front, .eco-card-back { padding: 1rem; }
+    .eco-card-front h3 { font-size: 0.95rem; }
+    .eco-card-front p { font-size: 0.82rem; }
+    .card-hint { font-size: 0.65rem; }
+    .org-node { font-size: 0.72rem; padding: 0.4rem 0.6rem; }
+    .org-node small { font-size: 0.6rem; }
+    .org-leaf { font-size: 0.65rem; }
+
+    /* Performances */
+    .athlete-info h3 { font-size: 1.1rem; }
+    .stat-box { min-width: 55px; }
+    .stat-value { font-size: 1.1rem; }
 
     /* Heritage */
     .story-timeline { padding-left: 1.8rem; }
-    .story-timeline::before { left: 0.4rem; }
+    .story-timeline::before { left: 0.35rem; }
     .chapter-marker { left: -1.8rem; }
-    .chapter-number { width: 1.8rem; height: 1.8rem; font-size: 0.7rem; border-width: 2px; }
-    .chapter-content { padding: 1rem; }
+    .chapter-number { width: 1.7rem; height: 1.7rem; font-size: 0.65rem; border-width: 2px; }
+    .chapter-content { padding: 0.8rem; }
+    .chapter-content h3 { font-size: 1rem; }
+    .heritage-stats { grid-template-columns: 1fr 1fr; gap: 0.5rem; }
+    .h-stat { padding: 0.6rem; }
+    .h-stat-value { font-size: 1.1rem; }
+    .h-stat-label { font-size: 0.6rem; }
+    .impact-card { padding: 1rem 0.8rem; }
+    .impact-icon { font-size: 1.6rem; }
+    .impact-card h4 { font-size: 0.85rem; }
+    .impact-card p { font-size: 0.78rem; }
+    .quote { padding: 0.8rem 1rem; font-size: 0.85rem; }
 
-    /* SVG map text - larger to counter viewport shrink */
+    /* SVG map text - bump up to counter viewport scaling */
     .paris-map text { font-size: 18px; }
 
     /* Charts */
-    .chart-container { padding: 0.8rem; }
-    .chart-container h4 { font-size: 0.82rem; }
+    .chart-container { padding: 0.6rem; }
+    .chart-container h4 { font-size: 0.78rem; }
 
     /* Table */
-    .results-table th, .results-table td { padding: 0.5rem 0.6rem; font-size: 0.75rem; }
+    .results-table th, .results-table td { padding: 0.4rem 0.5rem; font-size: 0.7rem; }
 
-    /* Impact cards */
-    .impact-card { padding: 1.2rem 1rem; }
+    /* Innovations */
+    .inno-card { padding: 1rem; }
+    .inno-card h4 { font-size: 0.88rem; }
+    .inno-card > p { font-size: 0.78rem; }
+    .inno-cat { font-size: 0.65rem; padding: 0.2rem 0.6rem; }
 
     /* Back to top */
-    #back-to-top { width: 36px; height: 36px; bottom: 0.8rem; right: 0.8rem; border-radius: 8px; }
+    #back-to-top { width: 36px; height: 36px; bottom: 0.7rem; right: 0.7rem; border-radius: 8px; }
 }
