@@ -1,0 +1,954 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paris 2024 - Jeux Olympiques | Webapp Interactive</title>
+    <meta name="description" content="Webapp interactive sur les Jeux Olympiques de Paris 2024 : ecosysteme, performances, heritage et innovations technologiques.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+
+    <!-- Loading Screen -->
+    <div id="loader">
+        <div class="loader-content">
+            <div class="loader-rings">
+                <span style="background:#0085C7"></span>
+                <span style="background:#F4C300"></span>
+                <span style="background:#333"></span>
+                <span style="background:#009F3D"></span>
+                <span style="background:#DF0024"></span>
+            </div>
+            <p>Paris 2024</p>
+        </div>
+    </div>
+
+    <!-- Scroll Progress Bar -->
+    <div id="scroll-progress"></div>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-brand">
+            <div class="nav-logo">
+                <span class="logo-ring" style="border-color:#0085C7"></span>
+                <span class="logo-ring" style="border-color:#F4C300"></span>
+                <span class="logo-ring" style="border-color:#333"></span>
+                <span class="logo-ring" style="border-color:#009F3D"></span>
+                <span class="logo-ring" style="border-color:#DF0024"></span>
+            </div>
+            <span class="brand-text">Paris <strong>2024</strong></span>
+        </div>
+        <button class="nav-toggle" id="nav-toggle" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links" id="nav-links">
+            <li><a href="#accueil" class="active">Accueil</a></li>
+            <li><a href="#ecosysteme">&Eacute;cosyst&egrave;me</a></li>
+            <li><a href="#performances">Performances</a></li>
+            <li><a href="#heritage">H&eacute;ritage</a></li>
+            <li><a href="#innovations">Innovations</a></li>
+        </ul>
+    </nav>
+
+    <!-- ============================================ -->
+    <!-- HERO / ACCUEIL                               -->
+    <!-- ============================================ -->
+    <section id="accueil" class="hero">
+        <canvas id="hero-particles"></canvas>
+        <div class="hero-content">
+            <div class="hero-badge">26 Juillet &mdash; 11 Ao&ucirc;t 2024</div>
+            <h1>Jeux Olympiques<br><span class="highlight">Paris 2024</span></h1>
+            <p class="hero-subtitle">Explorez l'&eacute;cosyst&egrave;me, les performances, l'h&eacute;ritage et les innovations des Jeux les plus ambitieux de l'histoire.</p>
+            <div class="hero-rings-olympic">
+                <svg viewBox="0 0 500 230" class="olympic-rings-svg">
+                    <circle cx="100" cy="100" r="60" stroke="#0085C7" stroke-width="8" fill="none" class="ring-anim"/>
+                    <circle cx="180" cy="100" r="60" stroke="#F4C300" stroke-width="8" fill="none" class="ring-anim"/>
+                    <circle cx="260" cy="100" r="60" stroke="#1a1a2e" stroke-width="8" fill="none" class="ring-anim"/>
+                    <circle cx="340" cy="100" r="60" stroke="#009F3D" stroke-width="8" fill="none" class="ring-anim"/>
+                    <circle cx="420" cy="100" r="60" stroke="#DF0024" stroke-width="8" fill="none" class="ring-anim"/>
+                </svg>
+            </div>
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <span class="counter" data-target="10500">0</span>
+                    <small>Athl&egrave;tes</small>
+                </div>
+                <div class="hero-stat">
+                    <span class="counter" data-target="329">0</span>
+                    <small>&Eacute;preuves</small>
+                </div>
+                <div class="hero-stat">
+                    <span class="counter" data-target="206">0</span>
+                    <small>Nations</small>
+                </div>
+                <div class="hero-stat">
+                    <span class="counter" data-target="32">0</span>
+                    <small>Sports</small>
+                </div>
+            </div>
+            <a href="#ecosysteme" class="btn-primary">
+                D&eacute;couvrir le projet
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
+            </a>
+        </div>
+        <div class="hero-scroll-indicator">
+            <div class="mouse"><div class="wheel"></div></div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- SECTION 1 : INFOGRAPHIE &Eacute;COSYST&Egrave;ME       -->
+    <!-- ============================================ -->
+    <section id="ecosysteme" class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-number">01</span>
+                <h2 class="section-title">Infographie de l'&Eacute;cosyst&egrave;me JO Paris 2024</h2>
+                <p class="section-intro">D&eacute;couvrez les acteurs cl&eacute;s, les sites, le budget et l'organisation des Jeux Olympiques de Paris 2024. Cliquez sur chaque carte pour r&eacute;v&eacute;ler les d&eacute;tails.</p>
+            </div>
+
+            <!-- Key Figures Bar -->
+            <div class="key-figures">
+                <div class="key-figure animate-on-scroll">
+                    <span class="kf-icon">&#127963;</span>
+                    <span class="kf-number counter" data-target="35">0</span>
+                    <span class="kf-label">Sites de comp&eacute;tition</span>
+                </div>
+                <div class="key-figure animate-on-scroll">
+                    <span class="kf-icon">&#127941;</span>
+                    <span class="kf-number counter" data-target="329">0</span>
+                    <span class="kf-label">&Eacute;preuves</span>
+                </div>
+                <div class="key-figure animate-on-scroll">
+                    <span class="kf-icon">&#127758;</span>
+                    <span class="kf-number counter" data-target="206">0</span>
+                    <span class="kf-label">Comit&eacute;s nationaux</span>
+                </div>
+                <div class="key-figure animate-on-scroll">
+                    <span class="kf-icon">&#128100;</span>
+                    <span class="kf-number counter" data-target="45000">0</span>
+                    <span class="kf-label">B&eacute;n&eacute;voles</span>
+                </div>
+            </div>
+
+            <!-- Interactive Cards Grid -->
+            <div class="eco-grid">
+                <div class="eco-card animate-on-scroll" onclick="toggleCard(this)">
+                    <div class="eco-card-inner">
+                        <div class="eco-card-front">
+                            <div class="eco-icon-wrap blue"><span>&#127963;</span></div>
+                            <h3>Sites Olympiques</h3>
+                            <p>35 sites de comp&eacute;tition &agrave; travers Paris, l'&Icirc;le-de-France et au-del&agrave;</p>
+                            <span class="card-hint">Cliquer pour d&eacute;tails &rarr;</span>
+                        </div>
+                        <div class="eco-card-back">
+                            <h4>&#127963; Sites embl&eacute;matiques</h4>
+                            <ul>
+                                <li><strong>Stade de France</strong> &mdash; Athl&eacute;tisme, Rugby</li>
+                                <li><strong>Tour Eiffel Stadium</strong> &mdash; Beach Volley</li>
+                                <li><strong>Ch&acirc;teau de Versailles</strong> &mdash; &Eacute;quitation, Pentathlon</li>
+                                <li><strong>Grand Palais</strong> &mdash; Escrime, Taekwondo</li>
+                                <li><strong>Arena Bercy</strong> &mdash; Gymnastique, Basketball</li>
+                                <li><strong>Tahiti (Teahupo'o)</strong> &mdash; Surf</li>
+                                <li><strong>Arena La D&eacute;fense</strong> &mdash; Natation, Water-polo</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="eco-card animate-on-scroll" onclick="toggleCard(this)">
+                    <div class="eco-card-inner">
+                        <div class="eco-card-front">
+                            <div class="eco-icon-wrap yellow"><span>&#127947;</span></div>
+                            <h3>Athl&egrave;tes &amp; Sports</h3>
+                            <p>10 500 athl&egrave;tes repr&eacute;sentant 206 nations dans 32 sports</p>
+                            <span class="card-hint">Cliquer pour d&eacute;tails &rarr;</span>
+                        </div>
+                        <div class="eco-card-back">
+                            <h4>&#127947; Participation mondiale</h4>
+                            <ul>
+                                <li><strong>Parit&eacute;</strong> &mdash; 50/50 hommes-femmes (1&egrave;re fois)</li>
+                                <li><strong>32 sports</strong> &mdash; dont 4 additionnels</li>
+                                <li><strong>Breaking</strong> &mdash; Nouveau sport olympique</li>
+                                <li><strong>Escalade</strong> &mdash; Formats individuels s&eacute;par&eacute;s</li>
+                                <li><strong>Skateboard</strong> &mdash; Street &amp; Park</li>
+                                <li><strong>Surf</strong> &mdash; &Agrave; Tahiti (Teahupo'o)</li>
+                                <li><strong>France</strong> &mdash; 573 athl&egrave;tes engag&eacute;s</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="eco-card animate-on-scroll" onclick="toggleCard(this)">
+                    <div class="eco-card-inner">
+                        <div class="eco-card-front">
+                            <div class="eco-icon-wrap green"><span>&#128176;</span></div>
+                            <h3>Budget &amp; Financement</h3>
+                            <p>8,8 milliards &euro; de budget total pour l'organisation des Jeux</p>
+                            <span class="card-hint">Cliquer pour d&eacute;tails &rarr;</span>
+                        </div>
+                        <div class="eco-card-back">
+                            <h4>&#128176; R&eacute;partition du budget</h4>
+                            <ul>
+                                <li><strong>COJO</strong> &mdash; 4,4 Mds&euro; (organisation)</li>
+                                <li><strong>SOLIDEO</strong> &mdash; 4,4 Mds&euro; (infrastructures)</li>
+                                <li><strong>96%</strong> financements priv&eacute;s (COJO)</li>
+                                <li><strong>Billetterie</strong> &mdash; 1,4 Md&euro; de recettes</li>
+                                <li><strong>Sponsors</strong> &mdash; 1,2 Md&euro; (80 partenaires)</li>
+                                <li><strong>Droits TV</strong> &mdash; Contribution CIO majeure</li>
+                                <li><strong>Impact &eacute;conomique</strong> &mdash; 11,1 Mds&euro; estim&eacute;s</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="eco-card animate-on-scroll" onclick="toggleCard(this)">
+                    <div class="eco-card-inner">
+                        <div class="eco-card-front">
+                            <div class="eco-icon-wrap red"><span>&#127758;</span></div>
+                            <h3>Spectateurs &amp; Audience</h3>
+                            <p>15 millions de spectateurs attendus et 4 milliards de t&eacute;l&eacute;spectateurs</p>
+                            <span class="card-hint">Cliquer pour d&eacute;tails &rarr;</span>
+                        </div>
+                        <div class="eco-card-back">
+                            <h4>&#127758; Affluence record</h4>
+                            <ul>
+                                <li><strong>13,5 M</strong> billets mis en vente</li>
+                                <li><strong>4 milliards</strong> t&eacute;l&eacute;spectateurs mondiaux</li>
+                                <li><strong>C&eacute;r&eacute;monie</strong> sur la Seine (6 km)</li>
+                                <li><strong>600 000</strong> spectateurs pour la c&eacute;r&eacute;monie</li>
+                                <li><strong>Fan zones</strong> dans tout Paris &amp; r&eacute;gions</li>
+                                <li><strong>Relais flamme</strong> &mdash; 10 000 porteurs, 68 jours</li>
+                                <li><strong>Club France</strong> &mdash; Parc de la Villette</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="eco-card animate-on-scroll" onclick="toggleCard(this)">
+                    <div class="eco-card-inner">
+                        <div class="eco-card-front">
+                            <div class="eco-icon-wrap dark"><span>&#128663;</span></div>
+                            <h3>Transports &amp; Mobilit&eacute;</h3>
+                            <p>Infrastructure enti&egrave;rement r&eacute;nov&eacute;e pour accueillir les flux olympiques</p>
+                            <span class="card-hint">Cliquer pour d&eacute;tails &rarr;</span>
+                        </div>
+                        <div class="eco-card-back">
+                            <h4>&#128663; Mobilit&eacute; olympique</h4>
+                            <ul>
+                                <li><strong>Ligne 14</strong> &mdash; Prolong&eacute;e (Orly &harr; Saint-Denis)</li>
+                                <li><strong>3 500 bus</strong> sp&eacute;ciaux mobilis&eacute;s</li>
+                                <li><strong>Voies olympiques</strong> r&eacute;serv&eacute;es (185 km)</li>
+                                <li><strong>Navettes fluviales</strong> sur la Seine</li>
+                                <li><strong>+60 km</strong> pistes cyclables permanentes</li>
+                                <li><strong>Pass Jeux</strong> &mdash; Titre transport d&eacute;di&eacute;</li>
+                                <li><strong>100%</strong> sites accessibles en transports</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="eco-card animate-on-scroll" onclick="toggleCard(this)">
+                    <div class="eco-card-inner">
+                        <div class="eco-card-front">
+                            <div class="eco-icon-wrap green"><span>&#9851;</span></div>
+                            <h3>Durabilit&eacute; &amp; Environnement</h3>
+                            <p>Les JO les plus &eacute;co-responsables de l'histoire olympique</p>
+                            <span class="card-hint">Cliquer pour d&eacute;tails &rarr;</span>
+                        </div>
+                        <div class="eco-card-back">
+                            <h4>&#9851; Engagements &eacute;cologiques</h4>
+                            <ul>
+                                <li><strong>95%</strong> sites existants ou temporaires</li>
+                                <li><strong>-55%</strong> &eacute;missions CO2 vs Londres 2012</li>
+                                <li><strong>100%</strong> &eacute;lectricit&eacute; renouvelable</li>
+                                <li><strong>Restauration</strong> 60% v&eacute;g&eacute;tarienne</li>
+                                <li><strong>Village olympique</strong> &mdash; &eacute;co-quartier</li>
+                                <li><strong>M&eacute;dailles</strong> fabriqu&eacute;es avec du fer de la Tour Eiffel</li>
+                                <li><strong>0 plastique</strong> &agrave; usage unique sur les sites</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Organigramme + Budget side by side -->
+            <div class="eco-bottom-grid">
+                <div class="organigramme animate-on-scroll">
+                    <h3>Organisation des JO Paris 2024</h3>
+                    <div class="org-tree">
+                        <div class="org-node org-root">CIO<br><small>Comit&eacute; International Olympique</small></div>
+                        <div class="org-connector"></div>
+                        <div class="org-level">
+                            <div class="org-branch">
+                                <div class="org-node org-blue">COJO<br><small>Paris 2024</small></div>
+                                <div class="org-connector-v"></div>
+                                <div class="org-sub">
+                                    <div class="org-leaf">Op&eacute;rations sportives</div>
+                                    <div class="org-leaf">Marketing &amp; Sponsors</div>
+                                    <div class="org-leaf">Billetterie &amp; Hospitalit&eacute;</div>
+                                    <div class="org-leaf">C&eacute;r&eacute;monies</div>
+                                </div>
+                            </div>
+                            <div class="org-branch">
+                                <div class="org-node org-green">SOLIDEO<br><small>Ouvrages Olympiques</small></div>
+                                <div class="org-connector-v"></div>
+                                <div class="org-sub">
+                                    <div class="org-leaf">Village olympique</div>
+                                    <div class="org-leaf">Centre aquatique</div>
+                                    <div class="org-leaf">Arena Porte de la Chapelle</div>
+                                    <div class="org-leaf">R&eacute;novation du Stade de France</div>
+                                </div>
+                            </div>
+                            <div class="org-branch">
+                                <div class="org-node org-red">&Eacute;tat &amp; Collectivit&eacute;s</div>
+                                <div class="org-connector-v"></div>
+                                <div class="org-sub">
+                                    <div class="org-leaf">S&eacute;curit&eacute; (45 000 agents)</div>
+                                    <div class="org-leaf">Transports &amp; Mobilit&eacute;</div>
+                                    <div class="org-leaf">Sant&eacute; &amp; Pr&eacute;vention</div>
+                                    <div class="org-leaf">Diplomatie &amp; Protocole</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="budget-chart-wrapper animate-on-scroll">
+                    <h3>R&eacute;partition du Budget (8,8 Mds&euro;)</h3>
+                    <canvas id="chart-budget"></canvas>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- SECTION 2 : DASHBOARD PERFORMANCES           -->
+    <!-- ============================================ -->
+    <section id="performances" class="section section-alt">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-number">02</span>
+                <h2 class="section-title">Dashboard Performances Athl&egrave;te</h2>
+                <p class="section-intro">Analyse interactive des performances de L&eacute;on Marchand, prodige de la natation fran&ccedil;aise &mdash; le h&eacute;ros des JO Paris 2024 avec 4 m&eacute;dailles d'or individuelles.</p>
+            </div>
+
+            <!-- Athlete Profile Card -->
+            <div class="athlete-profile animate-on-scroll">
+                <div class="athlete-avatar">
+                    <div class="avatar-circle">LM</div>
+                    <div class="avatar-flag">&#127467;&#127479;</div>
+                </div>
+                <div class="athlete-info">
+                    <h3>L&eacute;on Marchand</h3>
+                    <p class="athlete-discipline">Natation &mdash; France</p>
+                    <div class="medals-display">
+                        <div class="medal-item gold-medal">
+                            <span class="medal-icon">&#129351;</span>
+                            <span class="medal-count">4</span>
+                            <span class="medal-type">Or</span>
+                        </div>
+                        <div class="medal-item bronze-medal">
+                            <span class="medal-icon">&#129353;</span>
+                            <span class="medal-count">1</span>
+                            <span class="medal-type">Bronze</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="athlete-stats">
+                    <div class="stat-box">
+                        <span class="stat-value counter" data-target="22">0</span>
+                        <span class="stat-label">&Acirc;ge</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-value counter" data-target="5">0</span>
+                        <span class="stat-label">M&eacute;dailles</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-value counter" data-target="4">0</span>
+                        <span class="stat-label">Records Olympiques</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-value counter" data-target="1">0</span>
+                        <span class="stat-label">Record du Monde</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Filters -->
+            <div class="filters animate-on-scroll">
+                <button class="filter-btn active" data-filter="all" onclick="filterPerf('all', this)">Toutes les &eacute;preuves</button>
+                <button class="filter-btn" data-filter="individuel" onclick="filterPerf('individuel', this)">Individuel</button>
+                <button class="filter-btn" data-filter="relais" onclick="filterPerf('relais', this)">Relais</button>
+            </div>
+
+            <!-- Sortable Results Table -->
+            <div class="results-table-wrapper animate-on-scroll">
+                <table class="results-table" id="perf-table">
+                    <thead>
+                        <tr>
+                            <th onclick="sortTable(0)" class="sortable">&Eacute;preuve <span class="sort-icon">&#8597;</span></th>
+                            <th onclick="sortTable(1)" class="sortable">Type <span class="sort-icon">&#8597;</span></th>
+                            <th onclick="sortTable(2)" class="sortable">Temps <span class="sort-icon">&#8597;</span></th>
+                            <th>M&eacute;daille</th>
+                            <th>Record</th>
+                            <th>D&eacute;tails</th>
+                        </tr>
+                    </thead>
+                    <tbody id="results-body">
+                        <tr data-type="individuel" class="result-row">
+                            <td><strong>400m 4 nages</strong></td>
+                            <td><span class="type-badge individuel">Individuel</span></td>
+                            <td>4:02.95</td>
+                            <td><span class="medal-badge gold">&#129351; Or</span></td>
+                            <td><span class="record-badge">Record Olympique</span></td>
+                            <td><button class="detail-btn" onclick="showDetail('400m 4 nages', '4:02.95', 'Victoire avec 5.64s d\'avance sur le 2e. Performance historique.')">&#128269;</button></td>
+                        </tr>
+                        <tr data-type="individuel" class="result-row">
+                            <td><strong>200m papillon</strong></td>
+                            <td><span class="type-badge individuel">Individuel</span></td>
+                            <td>1:51.21</td>
+                            <td><span class="medal-badge gold">&#129351; Or</span></td>
+                            <td><span class="record-badge">Record Olympique</span></td>
+                            <td><button class="detail-btn" onclick="showDetail('200m papillon', '1:51.21', 'Domin&eacute; la finale du d&eacute;but &agrave; la fin. Un des temps les plus rapides de l\'histoire.')">&#128269;</button></td>
+                        </tr>
+                        <tr data-type="individuel" class="result-row">
+                            <td><strong>200m brasse</strong></td>
+                            <td><span class="type-badge individuel">Individuel</span></td>
+                            <td>2:05.85</td>
+                            <td><span class="medal-badge gold">&#129351; Or</span></td>
+                            <td><span class="record-badge">Record Olympique</span></td>
+                            <td><button class="detail-btn" onclick="showDetail('200m brasse', '2:05.85', 'Double exploit : deux finales en 2h avec victoire sur les deux.')">&#128269;</button></td>
+                        </tr>
+                        <tr data-type="individuel" class="result-row">
+                            <td><strong>200m 4 nages</strong></td>
+                            <td><span class="type-badge individuel">Individuel</span></td>
+                            <td>1:54.06</td>
+                            <td><span class="medal-badge gold">&#129351; Or</span></td>
+                            <td><span class="record-badge">Record Olympique</span></td>
+                            <td><button class="detail-btn" onclick="showDetail('200m 4 nages', '1:54.06', 'Quatri&egrave;me titre individuel. &Eacute;gale le record de Michael Phelps (4 or individuels en une &eacute;dition).')">&#128269;</button></td>
+                        </tr>
+                        <tr data-type="relais" class="result-row">
+                            <td><strong>4x100m 4 nages mixte</strong></td>
+                            <td><span class="type-badge relais">Relais</span></td>
+                            <td>3:37.32</td>
+                            <td><span class="medal-badge bronze">&#129353; Bronze</span></td>
+                            <td><span class="record-na">&mdash;</span></td>
+                            <td><button class="detail-btn" onclick="showDetail('4x100m 4 nages mixte', '3:37.32', 'Contribution d&eacute;cisive au relais mixte fran&ccedil;ais pour d&eacute;crocher le bronze.')">&#128269;</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Detail Modal -->
+            <div id="detail-modal" class="modal" onclick="closeModal(event)">
+                <div class="modal-content">
+                    <button class="modal-close" onclick="document.getElementById('detail-modal').classList.remove('open')">&times;</button>
+                    <h3 id="modal-title"></h3>
+                    <div class="modal-time" id="modal-time"></div>
+                    <p id="modal-desc"></p>
+                </div>
+            </div>
+
+            <!-- Charts Grid -->
+            <div class="charts-grid">
+                <div class="chart-container animate-on-scroll">
+                    <h4>Temps par &eacute;preuve (en secondes)</h4>
+                    <canvas id="chart-times"></canvas>
+                </div>
+                <div class="chart-container animate-on-scroll">
+                    <h4>R&eacute;partition des m&eacute;dailles</h4>
+                    <canvas id="chart-medals"></canvas>
+                </div>
+            </div>
+
+            <div class="charts-grid" style="margin-top:1.5rem;">
+                <div class="chart-container animate-on-scroll">
+                    <h4>&Eacute;volution du Record Olympique &mdash; 400m 4 nages</h4>
+                    <canvas id="chart-evolution"></canvas>
+                </div>
+                <div class="chart-container animate-on-scroll">
+                    <h4>Top 5 Nations &mdash; Tableau des m&eacute;dailles Paris 2024</h4>
+                    <canvas id="chart-nations"></canvas>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- SECTION 3 : H&Eacute;RITAGE OLYMPIQUE                -->
+    <!-- ============================================ -->
+    <section id="heritage" class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-number">03</span>
+                <h2 class="section-title">L'H&eacute;ritage Olympique vu par les Habitants</h2>
+                <p class="section-intro">Comment les JO de Paris 2024 transforment durablement la vie des quartiers, l'environnement urbain et le quotidien des habitants de Seine-Saint-Denis et de toute l'&Icirc;le-de-France.</p>
+            </div>
+
+            <!-- Interactive Map of Olympic Territory -->
+            <div class="territory-map animate-on-scroll">
+                <h3>Carte des sites olympiques &mdash; Paris &amp; Seine-Saint-Denis</h3>
+                <div class="map-container">
+                    <svg viewBox="0 0 800 500" class="paris-map" id="paris-map">
+                        <!-- Seine River -->
+                        <path d="M0 280 Q100 260 200 290 Q300 320 400 280 Q500 240 600 270 Q700 300 800 260"
+                              stroke="#0085C7" stroke-width="12" fill="none" opacity="0.3" stroke-linecap="round"/>
+                        <path d="M0 280 Q100 260 200 290 Q300 320 400 280 Q500 240 600 270 Q700 300 800 260"
+                              stroke="#0085C7" stroke-width="4" fill="none" opacity="0.6" stroke-linecap="round"/>
+                        <text x="350" y="305" fill="#0085C7" font-size="14" font-weight="600" opacity="0.5">La Seine</text>
+
+                        <!-- Paris boundary (simplified) -->
+                        <ellipse cx="380" cy="270" rx="200" ry="140" fill="none" stroke="#e2e8f0" stroke-width="2" stroke-dasharray="8 4"/>
+                        <text x="290" y="420" fill="#94a3b8" font-size="12" font-weight="500">PARIS</text>
+
+                        <!-- Seine-Saint-Denis area -->
+                        <rect x="350" y="80" width="220" height="120" rx="12" fill="#e8f4fd" stroke="#0085C7" stroke-width="1.5" opacity="0.4"/>
+                        <text x="395" y="105" fill="#0085C7" font-size="11" font-weight="700">SEINE-SAINT-DENIS</text>
+
+                        <!-- Olympic sites markers -->
+                        <!-- Stade de France -->
+                        <g class="map-pin" data-name="Stade de France" data-info="Athl&eacute;tisme, C&eacute;r&eacute;monies" onclick="showMapInfo(this)">
+                            <circle cx="420" cy="140" r="14" fill="#DF0024" opacity="0.9"/>
+                            <circle cx="420" cy="140" r="14" fill="#DF0024" opacity="0.3" class="map-pulse"/>
+                            <text x="420" y="145" text-anchor="middle" fill="white" font-size="10" font-weight="700">SF</text>
+                            <text x="440" y="138" fill="#1e293b" font-size="9" font-weight="600">Stade de France</text>
+                        </g>
+
+                        <!-- Village Olympique -->
+                        <g class="map-pin" data-name="Village Olympique" data-info="6 000 logements p&eacute;rennes" onclick="showMapInfo(this)">
+                            <circle cx="470" cy="170" r="14" fill="#009F3D" opacity="0.9"/>
+                            <circle cx="470" cy="170" r="14" fill="#009F3D" opacity="0.3" class="map-pulse"/>
+                            <text x="470" y="175" text-anchor="middle" fill="white" font-size="10" font-weight="700">VO</text>
+                            <text x="490" y="168" fill="#1e293b" font-size="9" font-weight="600">Village Olympique</text>
+                        </g>
+
+                        <!-- Centre Aquatique -->
+                        <g class="map-pin" data-name="Centre Aquatique" data-info="Natation, Plongeon (nouveau)" onclick="showMapInfo(this)">
+                            <circle cx="500" cy="130" r="12" fill="#0085C7" opacity="0.9"/>
+                            <circle cx="500" cy="130" r="12" fill="#0085C7" opacity="0.3" class="map-pulse"/>
+                            <text x="500" y="134" text-anchor="middle" fill="white" font-size="9" font-weight="700">CA</text>
+                            <text x="516" y="128" fill="#1e293b" font-size="9" font-weight="600">Centre Aquatique</text>
+                        </g>
+
+                        <!-- Tour Eiffel -->
+                        <g class="map-pin" data-name="Tour Eiffel Stadium" data-info="Beach Volley" onclick="showMapInfo(this)">
+                            <circle cx="240" cy="260" r="14" fill="#F4C300" opacity="0.9"/>
+                            <circle cx="240" cy="260" r="14" fill="#F4C300" opacity="0.3" class="map-pulse"/>
+                            <text x="240" y="265" text-anchor="middle" fill="#333" font-size="10" font-weight="700">TE</text>
+                            <text x="200" y="248" fill="#1e293b" font-size="9" font-weight="600">Tour Eiffel</text>
+                        </g>
+
+                        <!-- Grand Palais -->
+                        <g class="map-pin" data-name="Grand Palais" data-info="Escrime, Taekwondo" onclick="showMapInfo(this)">
+                            <circle cx="310" cy="240" r="12" fill="#1a1a2e" opacity="0.9"/>
+                            <circle cx="310" cy="240" r="12" fill="#1a1a2e" opacity="0.3" class="map-pulse"/>
+                            <text x="310" y="244" text-anchor="middle" fill="white" font-size="9" font-weight="700">GP</text>
+                            <text x="280" y="228" fill="#1e293b" font-size="9" font-weight="600">Grand Palais</text>
+                        </g>
+
+                        <!-- Bercy Arena -->
+                        <g class="map-pin" data-name="Arena Bercy" data-info="Gymnastique, Basketball" onclick="showMapInfo(this)">
+                            <circle cx="490" cy="290" r="12" fill="#DF0024" opacity="0.9"/>
+                            <circle cx="490" cy="290" r="12" fill="#DF0024" opacity="0.3" class="map-pulse"/>
+                            <text x="490" y="294" text-anchor="middle" fill="white" font-size="9" font-weight="700">AB</text>
+                            <text x="506" y="288" fill="#1e293b" font-size="9" font-weight="600">Arena Bercy</text>
+                        </g>
+
+                        <!-- Versailles -->
+                        <g class="map-pin" data-name="Ch&acirc;teau de Versailles" data-info="&Eacute;quitation, Pentathlon moderne" onclick="showMapInfo(this)">
+                            <circle cx="80" cy="310" r="14" fill="#009F3D" opacity="0.9"/>
+                            <circle cx="80" cy="310" r="14" fill="#009F3D" opacity="0.3" class="map-pulse"/>
+                            <text x="80" y="315" text-anchor="middle" fill="white" font-size="10" font-weight="700">VE</text>
+                            <text x="60" y="338" fill="#1e293b" font-size="9" font-weight="600">Versailles</text>
+                        </g>
+
+                        <!-- Trocadero -->
+                        <g class="map-pin" data-name="Troc&eacute;adero" data-info="C&eacute;r&eacute;monie de cl&ocirc;ture, Cyclisme" onclick="showMapInfo(this)">
+                            <circle cx="220" cy="230" r="10" fill="#F4C300" opacity="0.9"/>
+                            <text x="220" y="234" text-anchor="middle" fill="#333" font-size="8" font-weight="700">TR</text>
+                            <text x="190" y="218" fill="#1e293b" font-size="9" font-weight="600">Trocad&eacute;ro</text>
+                        </g>
+                    </svg>
+
+                    <!-- Map Info Tooltip -->
+                    <div class="map-tooltip" id="map-tooltip">
+                        <h5 id="map-tooltip-name"></h5>
+                        <p id="map-tooltip-info"></p>
+                    </div>
+                </div>
+                <div class="map-legend">
+                    <span><i style="background:#DF0024"></i> Comp&eacute;tition</span>
+                    <span><i style="background:#009F3D"></i> H&eacute;ritage p&eacute;renne</span>
+                    <span><i style="background:#0085C7"></i> Nouvelle infrastructure</span>
+                    <span><i style="background:#F4C300"></i> Sites iconiques</span>
+                </div>
+            </div>
+
+            <!-- Scroll Storytelling Timeline -->
+            <div class="story-timeline">
+
+                <!-- Chapter 1 -->
+                <div class="story-chapter animate-on-scroll">
+                    <div class="chapter-marker"><span class="chapter-number">01</span></div>
+                    <div class="chapter-content">
+                        <span class="chapter-tag">Urbanisme</span>
+                        <h3>Avant les JO : Saint-Denis en attente de renouveau</h3>
+                        <p>Le d&eacute;partement de Seine-Saint-Denis, territoire d'accueil principal des Jeux, &eacute;tait marqu&eacute; par des friches industrielles, un d&eacute;ficit d'espaces verts et un enclavement chronique. Le canal Saint-Denis, pourtant strat&eacute;gique, restait un axe d&eacute;laiss&eacute;.</p>
+                        <div class="before-after">
+                            <div class="ba-card before">
+                                <div class="ba-header">
+                                    <span class="ba-label ba-before-label">AVANT</span>
+                                </div>
+                                <ul>
+                                    <li>Friches industrielles &amp; terrains vagues</li>
+                                    <li>Espaces verts : <strong>5,2 m&sup2;/hab</strong></li>
+                                    <li>Taux de pauvret&eacute; : <strong>36%</strong></li>
+                                    <li>Enclavement des quartiers nord</li>
+                                    <li>Transport : 1h30 pour traverser le d&eacute;partement</li>
+                                </ul>
+                            </div>
+                            <div class="ba-card after">
+                                <div class="ba-header">
+                                    <span class="ba-label ba-after-label">APR&Egrave;S</span>
+                                </div>
+                                <ul>
+                                    <li>&Eacute;co-quartier de <strong>6 000 logements</strong></li>
+                                    <li>Espaces verts : <strong>14 m&sup2;/hab</strong> (+169%)</li>
+                                    <li>Nouveaux parcs &amp; passerelles pi&eacute;tonnes</li>
+                                    <li>Desserte directe par le m&eacute;tro ligne 14</li>
+                                    <li>Centre aquatique olympique p&eacute;renne</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chapter 2 -->
+                <div class="story-chapter animate-on-scroll">
+                    <div class="chapter-marker"><span class="chapter-number">02</span></div>
+                    <div class="chapter-content">
+                        <span class="chapter-tag">Environnement</span>
+                        <h3>La Seine : un symbole retrouv&eacute;</h3>
+                        <blockquote class="quote">
+                            &laquo; On nous avait promis qu'on pourrait se baigner dans la Seine. Quand j'ai vu les athl&egrave;tes nager lors du triathlon, j'ai compris que &ccedil;a devenait r&eacute;el. Mes petits-enfants pourront peut-&ecirc;tre s'y baigner un jour. &raquo;
+                            <cite>&mdash; Marie, 67 ans, habitante du 12&egrave;me arrondissement</cite>
+                        </blockquote>
+                        <div class="seine-facts">
+                            <div class="seine-fact">
+                                <span class="sf-number">1,4 Md&euro;</span>
+                                <span class="sf-desc">investis dans l'assainissement</span>
+                            </div>
+                            <div class="seine-fact">
+                                <span class="sf-number">23</span>
+                                <span class="sf-desc">stations d'&eacute;puration renov&eacute;es</span>
+                            </div>
+                            <div class="seine-fact">
+                                <span class="sf-number">50 000 m&sup3;</span>
+                                <span class="sf-desc">bassin de r&eacute;tention d'Austerlitz</span>
+                            </div>
+                        </div>
+                        <p>Ce bassin g&eacute;ant, construit sous la gare d'Austerlitz, emp&ecirc;che les d&eacute;bordements d'eaux us&eacute;es dans la Seine lors des fortes pluies. Un h&eacute;ritage durable qui b&eacute;n&eacute;ficiera &agrave; tous les Parisiens pour des d&eacute;cennies.</p>
+                    </div>
+                </div>
+
+                <!-- Chapter 3 -->
+                <div class="story-chapter animate-on-scroll">
+                    <div class="chapter-marker"><span class="chapter-number">03</span></div>
+                    <div class="chapter-content">
+                        <span class="chapter-tag">Mobilit&eacute;</span>
+                        <h3>Des transports transform&eacute;s pour tous</h3>
+                        <div class="impact-cards">
+                            <div class="impact-card">
+                                <div class="impact-icon">&#128643;</div>
+                                <h4>Ligne 14 prolong&eacute;e</h4>
+                                <p>Desserte directe Orly &harr; Saint-Denis Pleyel. <strong>Gain de 45 min</strong> pour les habitants du nord. Ligne 100% automatique.</p>
+                            </div>
+                            <div class="impact-card">
+                                <div class="impact-icon">&#128690;</div>
+                                <h4>Pistes cyclables</h4>
+                                <p><strong>+60 km</strong> de pistes permanentes. R&eacute;seau continu reliant tous les sites olympiques &agrave; travers la m&eacute;tropole.</p>
+                            </div>
+                            <div class="impact-card">
+                                <div class="impact-icon">&#9855;</div>
+                                <h4>Accessibilit&eacute; PMR</h4>
+                                <p>Mise aux normes de <strong>dizaines de stations</strong> de m&eacute;tro et gares RER. H&eacute;ritage crucial pour les personnes &agrave; mobilit&eacute; r&eacute;duite.</p>
+                            </div>
+                            <div class="impact-card">
+                                <div class="impact-icon">&#128674;</div>
+                                <h4>Navettes fluviales</h4>
+                                <p>Nouvelles lignes de <strong>bateaux-bus</strong> sur la Seine, d&eacute;sengorgeant les transports terrestres et offrant une alternative &eacute;cologique.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chapter 4 -->
+                <div class="story-chapter animate-on-scroll">
+                    <div class="chapter-marker"><span class="chapter-number">04</span></div>
+                    <div class="chapter-content">
+                        <span class="chapter-tag">Social &amp; Culture</span>
+                        <h3>Un h&eacute;ritage social et sportif pour la jeunesse</h3>
+                        <blockquote class="quote">
+                            &laquo; Les enfants du quartier ont pu assister &agrave; des &eacute;preuves gratuitement gr&acirc;ce au programme "Ma Plus Belle Victoire". &Ccedil;a leur a donn&eacute; des r&ecirc;ves et l'envie de faire du sport. Trois de mes &eacute;l&egrave;ves se sont inscrits en club de natation depuis. &raquo;
+                            <cite>&mdash; Ahmed, 34 ans, &eacute;ducateur sportif &agrave; Saint-Denis</cite>
+                        </blockquote>
+                        <div class="heritage-stats">
+                            <div class="h-stat animate-on-scroll">
+                                <span class="h-stat-value counter" data-target="3000">0</span>
+                                <span class="h-stat-label">emplois locaux cr&eacute;&eacute;s</span>
+                            </div>
+                            <div class="h-stat animate-on-scroll">
+                                <span class="h-stat-value counter" data-target="45000">0</span>
+                                <span class="h-stat-label">b&eacute;n&eacute;voles mobilis&eacute;s</span>
+                            </div>
+                            <div class="h-stat animate-on-scroll">
+                                <span class="h-stat-value counter" data-target="400">0</span>
+                                <span class="h-stat-label">clubs sportifs soutenus</span>
+                            </div>
+                            <div class="h-stat animate-on-scroll">
+                                <span class="h-stat-value counter" data-target="1000000">0</span>
+                                <span class="h-stat-label">billets solidaires distribu&eacute;s</span>
+                            </div>
+                        </div>
+
+                        <blockquote class="quote" style="border-left-color: var(--green);">
+                            &laquo; Avant les Jeux, quand je disais que j'habitais &agrave; Saint-Denis, les gens faisaient la grimace. Maintenant, ils me r&eacute;pondent "c'est l&agrave; o&ugrave; il y avait le village olympique !" La fiert&eacute; a chang&eacute; de camp. &raquo;
+                            <cite>&mdash; Fatima, 42 ans, commer&ccedil;ante &agrave; Saint-Denis</cite>
+                        </blockquote>
+                    </div>
+                </div>
+
+                <!-- Chapter 5 -->
+                <div class="story-chapter animate-on-scroll">
+                    <div class="chapter-marker"><span class="chapter-number">05</span></div>
+                    <div class="chapter-content">
+                        <span class="chapter-tag">Bilan</span>
+                        <h3>Un h&eacute;ritage qui divise aussi</h3>
+                        <p>L'h&eacute;ritage olympique n'est pas unanimement positif. Certains habitants d&eacute;plorent la hausse des loyers, la gentrification de quartiers populaires et les nuisances des chantiers qui ont dur&eacute; des ann&eacute;es. Le d&eacute;fi sera de s'assurer que les promesses faites aux habitants soient tenues dans la dur&eacute;e.</p>
+                        <div class="pros-cons">
+                            <div class="pros">
+                                <h4>&#9989; Points positifs</h4>
+                                <ul>
+                                    <li>Infrastructures p&eacute;rennes (piscine, arena)</li>
+                                    <li>Am&eacute;lioration des transports</li>
+                                    <li>Baignade dans la Seine</li>
+                                    <li>Fiert&eacute; et image du territoire</li>
+                                </ul>
+                            </div>
+                            <div class="cons">
+                                <h4>&#10060; Points de vigilance</h4>
+                                <ul>
+                                    <li>Hausse des loyers (+15% zone JO)</li>
+                                    <li>Gentrification des quartiers</li>
+                                    <li>Nuisances des chantiers (6 ans)</li>
+                                    <li>Co&ucirc;t final sup&eacute;rieur aux pr&eacute;visions</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- SECTION 4 : INNOVATIONS TECHNOLOGIQUES       -->
+    <!-- ============================================ -->
+    <section id="innovations" class="section section-alt">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-number">04</span>
+                <h2 class="section-title">Innovations Technologiques des JO Paris 2024</h2>
+                <p class="section-intro">Les technologies de pointe d&eacute;ploy&eacute;es pour faire de Paris 2024 les Jeux les plus innovants, connect&eacute;s et durables de l'histoire olympique.</p>
+            </div>
+
+            <!-- Category Filters -->
+            <div class="filters animate-on-scroll">
+                <button class="filter-btn active" onclick="filterInno('all', this)">Toutes</button>
+                <button class="filter-btn" onclick="filterInno('broadcast', this)"><span class="filter-dot" style="background:#0085C7"></span> Diffusion</button>
+                <button class="filter-btn" onclick="filterInno('security', this)"><span class="filter-dot" style="background:#DF0024"></span> S&eacute;curit&eacute;</button>
+                <button class="filter-btn" onclick="filterInno('sport', this)"><span class="filter-dot" style="background:#F4C300"></span> Sport</button>
+                <button class="filter-btn" onclick="filterInno('green', this)"><span class="filter-dot" style="background:#009F3D"></span> &Eacute;cologie</button>
+            </div>
+
+            <div class="inno-grid" id="inno-grid">
+                <!-- Broadcast -->
+                <div class="inno-card animate-on-scroll" data-category="broadcast">
+                    <div class="inno-header">
+                        <span class="inno-cat broadcast">&#128250; Diffusion</span>
+                    </div>
+                    <h4>Diffusion immersive &amp; r&eacute;alit&eacute; augment&eacute;e</h4>
+                    <p>Cam&eacute;ras volum&eacute;triques et AR permettant aux t&eacute;l&eacute;spectateurs de revivre les &eacute;preuves sous n'importe quel angle, avec statistiques en temps r&eacute;el superpos&eacute;es &agrave; l'image.</p>
+                    <div class="inno-gauge-bar animate-gauge" data-value="95">
+                        <div class="gauge-track">
+                            <div class="gauge-fill-bar" style="--target-width:95%"></div>
+                        </div>
+                        <span class="gauge-label">Impact : <strong>95%</strong></span>
+                    </div>
+                </div>
+
+                <div class="inno-card animate-on-scroll" data-category="broadcast">
+                    <div class="inno-header">
+                        <span class="inno-cat broadcast">&#128250; Diffusion</span>
+                    </div>
+                    <h4>R&eacute;seau 5G &eacute;v&eacute;nementielle</h4>
+                    <p>R&eacute;seau 5G d&eacute;di&eacute; d&eacute;ploy&eacute; sur chaque site pour le streaming en 8K, les exp&eacute;riences AR des spectateurs et la coordination logistique en temps r&eacute;el.</p>
+                    <div class="inno-gauge-bar animate-gauge" data-value="78">
+                        <div class="gauge-track">
+                            <div class="gauge-fill-bar" style="--target-width:78%"></div>
+                        </div>
+                        <span class="gauge-label">Impact : <strong>78%</strong></span>
+                    </div>
+                </div>
+
+                <!-- Security -->
+                <div class="inno-card animate-on-scroll" data-category="security">
+                    <div class="inno-header">
+                        <span class="inno-cat security">&#128274; S&eacute;curit&eacute;</span>
+                    </div>
+                    <h4>IA de vid&eacute;osurveillance algorithmique</h4>
+                    <p>Syst&egrave;me de d&eacute;tection d'&eacute;v&eacute;nements anormaux par intelligence artificielle d&eacute;ploy&eacute; sur 15 000 cam&eacute;ras. D&eacute;tection de mouvements de foule, objets abandonn&eacute;s et comportements suspects &mdash; sans reconnaissance faciale.</p>
+                    <div class="inno-gauge-bar animate-gauge" data-value="88">
+                        <div class="gauge-track">
+                            <div class="gauge-fill-bar" style="--target-width:88%"></div>
+                        </div>
+                        <span class="gauge-label">Impact : <strong>88%</strong></span>
+                    </div>
+                </div>
+
+                <div class="inno-card animate-on-scroll" data-category="security">
+                    <div class="inno-header">
+                        <span class="inno-cat security">&#128274; S&eacute;curit&eacute;</span>
+                    </div>
+                    <h4>Syst&egrave;me anti-drones (MILAD)</h4>
+                    <p>Neutralisation de drones non autoris&eacute;s par brouillage et interception. Protection de l'espace a&eacute;rien sur un rayon de 150 km autour de Paris pendant toute la dur&eacute;e des Jeux.</p>
+                    <div class="inno-gauge-bar animate-gauge" data-value="85">
+                        <div class="gauge-track">
+                            <div class="gauge-fill-bar" style="--target-width:85%"></div>
+                        </div>
+                        <span class="gauge-label">Impact : <strong>85%</strong></span>
+                    </div>
+                </div>
+
+                <!-- Sport -->
+                <div class="inno-card animate-on-scroll" data-category="sport">
+                    <div class="inno-header">
+                        <span class="inno-cat sport">&#127941; Sport</span>
+                    </div>
+                    <h4>Chronom&eacute;trage Omega haute pr&eacute;cision</h4>
+                    <p>Capteurs au milli&egrave;me de seconde, photo-finish 40 000 images/seconde, plaques de touche ultra-sensibles en natation et capteurs de mouvement 3D en athl&eacute;tisme.</p>
+                    <div class="inno-gauge-bar animate-gauge" data-value="82">
+                        <div class="gauge-track">
+                            <div class="gauge-fill-bar" style="--target-width:82%"></div>
+                        </div>
+                        <span class="gauge-label">Impact : <strong>82%</strong></span>
+                    </div>
+                </div>
+
+                <div class="inno-card animate-on-scroll" data-category="sport">
+                    <div class="inno-header">
+                        <span class="inno-cat sport">&#127941; Sport</span>
+                    </div>
+                    <h4>Analyse biom&eacute;canique par IA</h4>
+                    <p>Capteurs et cam&eacute;ras haute vitesse coupl&eacute;s &agrave; l'IA pour analyser les mouvements des athl&egrave;tes en temps r&eacute;el, fournissant des donn&eacute;es pr&eacute;cises aux entra&icirc;neurs et diffuseurs.</p>
+                    <div class="inno-gauge-bar animate-gauge" data-value="75">
+                        <div class="gauge-track">
+                            <div class="gauge-fill-bar" style="--target-width:75%"></div>
+                        </div>
+                        <span class="gauge-label">Impact : <strong>75%</strong></span>
+                    </div>
+                </div>
+
+                <!-- Green -->
+                <div class="inno-card animate-on-scroll" data-category="green">
+                    <div class="inno-header">
+                        <span class="inno-cat green">&#127807; &Eacute;cologie</span>
+                    </div>
+                    <h4>&Eacute;nergie 100% renouvelable</h4>
+                    <p>Alimentation &eacute;lectrique de tous les sites par un mix &eacute;olien/solaire avec batteries de stockage. Premiers JO &agrave; compenser 100% de leurs &eacute;missions directes en carbone.</p>
+                    <div class="inno-gauge-bar animate-gauge" data-value="90">
+                        <div class="gauge-track">
+                            <div class="gauge-fill-bar" style="--target-width:90%"></div>
+                        </div>
+                        <span class="gauge-label">Impact : <strong>90%</strong></span>
+                    </div>
+                </div>
+
+                <div class="inno-card animate-on-scroll" data-category="green">
+                    <div class="inno-header">
+                        <span class="inno-cat green">&#127807; &Eacute;cologie</span>
+                    </div>
+                    <h4>Restauration bas carbone &amp; circuits courts</h4>
+                    <p>Menus &agrave; 60% v&eacute;g&eacute;tariens, approvisionnement en circuits courts (&lt;250 km), vaisselle 100% r&eacute;utilisable. 13 millions de repas servis avec un bilan carbone divis&eacute; par 2.</p>
+                    <div class="inno-gauge-bar animate-gauge" data-value="72">
+                        <div class="gauge-track">
+                            <div class="gauge-fill-bar" style="--target-width:72%"></div>
+                        </div>
+                        <span class="gauge-label">Impact : <strong>72%</strong></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Radar + Summary Charts -->
+            <div class="charts-grid">
+                <div class="chart-container animate-on-scroll">
+                    <h4>Impact par domaine d'innovation</h4>
+                    <canvas id="chart-radar"></canvas>
+                </div>
+                <div class="chart-container animate-on-scroll">
+                    <h4>Comparaison avec les JO pr&eacute;c&eacute;dents</h4>
+                    <canvas id="chart-inno-compare"></canvas>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="footer-rings">
+                        <span style="background:#0085C7"></span>
+                        <span style="background:#F4C300"></span>
+                        <span style="background:#333"></span>
+                        <span style="background:#009F3D"></span>
+                        <span style="background:#DF0024"></span>
+                    </div>
+                    <h4>Paris 2024</h4>
+                    <p>Webapp r&eacute;alis&eacute;e dans le cadre du projet<br>Vibe Coding x JO Paris 2024</p>
+                </div>
+                <div class="footer-nav">
+                    <h5>Navigation</h5>
+                    <a href="#accueil">Accueil</a>
+                    <a href="#ecosysteme">&Eacute;cosyst&egrave;me</a>
+                    <a href="#performances">Performances</a>
+                    <a href="#heritage">H&eacute;ritage</a>
+                    <a href="#innovations">Innovations</a>
+                </div>
+                <div class="footer-info">
+                    <h5>Projet</h5>
+                    <p>Projet supervis&eacute; B2 &mdash; Session 2</p>
+                    <p>D&eacute;veloppement assist&eacute; par IA</p>
+                    <p>&copy; 2024 &mdash; Tous droits r&eacute;serv&eacute;s</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>Fait avec passion pour les Jeux Olympiques de Paris 2024</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top -->
+    <button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Retour en haut">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+</html>
