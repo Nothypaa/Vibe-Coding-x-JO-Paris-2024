@@ -63,7 +63,7 @@ Ouvrir `index.html` dans un navigateur. Aucune installation requise.
 
 ## Deploiement
 
-Deploye sur **Vercel** : [lien a ajouter apres deploiement]
+Deploye sur **Vercel** : [https://vibe-coding-x-jo-paris-2024-five.vercel.app](https://vibe-coding-x-jo-paris-2024-five.vercel.app)
 
 ## Structure du projet
 
